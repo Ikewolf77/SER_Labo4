@@ -13,7 +13,7 @@
 		indent = "yes"
 	/> <!-- ##### A compléter 1 -->
 
-	<> <!-- ##### A compléter 2 -->
+	<xsl:template match="/pokedex"> <!-- ##### A compléter 2 -->
 
 		<html>
 
@@ -116,7 +116,7 @@
 
 		</html>
 
-	<> <!-- Fin a compléter 2 -->
+	</xsl:template> <!-- Fin a compléter 2 -->
 
 	<xsl:template name="lister_pokemon">
 
@@ -189,7 +189,7 @@
 
 	<xsl:template match="id">
 
-		<img width="100%"
+		<img width="100%">
 
 			</> <!-- ##### A compléter 8 : Ici, vous devez étudier le dossier images et vous trouverez facilement l'objectif de ce que vous devez faire ici. Indice : Vous devez utiliser une ou plusieurs 	               fonctions de  XSLT-->
 
