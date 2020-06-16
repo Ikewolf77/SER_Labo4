@@ -83,7 +83,7 @@
 
 								<!-- ##### A compléter 4 : Ici, vous devez faire appel au template lister_pokemon en lui passant le bon filtre en paramètre -->
 								<xsl:call-template name="lister_pokemon">
-									<xsl:with-param name="filtre" select="pokemon[type = $type]"/>
+									<xsl:with-param name="filtre" select="/pokedex/pokemon[type = $type]"/>
 								</xsl:call-template>
 
 							</div>
@@ -152,32 +152,30 @@
 				<!-- generation = "5" si l'id du pokemon est plus petit ou égal à 649 et plus grand que 493 -->
 				<!-- generation = "6" si l'id du pokemon est plus petit ou égal à 721 et plus grand que 649.-->
 				<!-- generation = "7" si l'id du pokemon est plus petit ou égal à 809 et plus grand que 721-->
-
-				<xsl:value-of select="1"/> <!--Pour l'instant tous les pokémosn sont de la génération 1, pour que vous ne soyez pas bloqué sur le reste -->
-				<!--
+				
 				<xsl:choose>
-					<xsl:when test="id <= 151">
+					<xsl:when test="id &lt; 152">
 						<xsl:value-of select="1"/>
 					</xsl:when>
-					<xsl:when test="id <= 251 and id > 151">
+					<xsl:when test="id &lt; 252 and id &gt; 151">
 						<xsl:value-of select="2"/>
 					</xsl:when>
-					<xsl:when test="id <= 368 and id > 251">
+					<xsl:when test="id &lt; 369 and id &gt; 251">
 						<xsl:value-of select="3"/>
 					</xsl:when>
-					<xsl:when test="id <= 493 and id > 368">
+					<xsl:when test="id &lt; 494 and id &gt; 368">
 						<xsl:value-of select="4"/>
 					</xsl:when>
-					<xsl:when test="id <= 649 and id > 493">
+					<xsl:when test="id &lt; 650 and id &gt; 493">
 						<xsl:value-of select="5"/>
 					</xsl:when>
-					<xsl:when test="id <= 721 and id > 649">
+					<xsl:when test="id &lt; 722 and id &gt; 649">
 						<xsl:value-of select="6"/>
 					</xsl:when>
-					<xsl:when test="id <= 809 and id > 721">
+					<xsl:when test="id &lt; 810 and id &gt; 721">
 						<xsl:value-of select="7"/>
 					</xsl:when>
-				</xsl:choose>-->
+				</xsl:choose>
 
 				<!-- Fin A compléter 10 -->
 
@@ -217,8 +215,10 @@
 
 		<img width="100%">
 
+			<xsl:variable name="id" select="." />
+
 			<xsl:attribute name="src">
-				images/<xsl:value-of select="."/>.png
+				images/<xsl:number value="$id" format="001"/>.png
 			</xsl:attribute> 
 						  <!-- ##### A compléter 8 : Ici, vous devez étudier le dossier images et vous trouverez facilement l'objectif de ce que vous devez faire ici. 
 						   Indice : Vous devez utiliser une ou plusieurs  fonctions de  XSLT-->
