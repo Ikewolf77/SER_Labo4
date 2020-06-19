@@ -46,7 +46,7 @@
 
 					<div id="accordion">
 
-						<xsl:variable name="types" select="" /> <!-- ##### A compléter 3 : Ici, vous devez trouver l'expression XPath à mettre dans l'attribut select 
+						<xsl:variable name="types" select="pokemon/type[not(text() = preceding::text())]" /> <!-- ##### A compléter 3 : Ici, vous devez trouver l'expression XPath à mettre dans l'attribut select 
 					                                                       Le but est de récupérer les types de pokemon en parcourant tous les enfants <type> de tous les pokemons,
 					                                                       mais sans avoir de doublons à la fin, vous ne pouvez pas mettre explicitement ici les types que vous trouver dans le fichier XML
 
@@ -76,9 +76,9 @@
 									<xsl:value-of select="." />
 								</xsl:attribute>
 
-								<ysl:call_template name="lister_pokemon">
+								<xsl:call-template name="lister_pokemon">
 									<xsl:with-param name="filtre" select="/pokedex/pokemon[type = $type]"/>
-								</ysl:call_template>
+								</xsl:call-template>
 							</div>
 
 						</xsl:for-each>
@@ -111,11 +111,11 @@
 
 		</html>
 
-	<xsl:template> <!-- Fin a compléter 2 -->
+	</xsl:template> <!-- Fin a compléter 2 -->
 
 	<xsl:template name="lister_pokemon">
 
-		<xsl:param="filtre"/> <!-- ##### A compléter 6 -->
+		<xsl:param name="filtre"/> <!-- ##### A compléter 6 -->
 
 		<div class="row">
 
@@ -140,25 +140,25 @@
 				<xsl:choose>
 					<xsl:when test="id &lt; 152">
 						<xsl:value-of select="1"/>
-					<xsl:when>
+					</xsl:when>
 					<xsl:when test="id &lt; 252 and id &gt; 151">
 						<xsl:value-of select="2"/>
-					<xsl:when>
+					</xsl:when>
 					<xsl:when test="id &lt; 369 and id &gt; 251">
 						<xsl:value-of select="3"/>
-					<xsl:when>
+					</xsl:when>
 					<xsl:when test="id &lt; 494 and id &gt; 368">
 						<xsl:value-of select="4"/>
-					<xsl:when>
+					</xsl:when>
 					<xsl:when test="id &lt; 650 and id &gt; 493">
 						<xsl:value-of select="5"/>
-					<xsl:when>
+					</xsl:when>
 					<xsl:when test="id &lt; 722 and id &gt; 649">
 						<xsl:value-of select="6"/>
-					<xsl:when>
+					</xsl:when>
 					<xsl:when test="id &lt; 810 and id &gt; 721">
 						<xsl:value-of select="7"/>
-					<xsl:when>
+					</xsl:when>
 				</xsl:choose>
 
 				<!-- Fin A compléter 10 -->
@@ -199,9 +199,9 @@
 
 		<img width="100%">
 			<xsl:variable name="id" select="." />
-			<xls:attribute name="src">
+			<xsl:attribute name="src">
 				images/<xsl:number value="$id" format="001"/>.png
-			</xls:attribute>
+			</xsl:attribute>
 		</img>
 
 	</xsl:template>
