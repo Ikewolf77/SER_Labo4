@@ -5,9 +5,9 @@
 	<!-- Travail à faire : Compléter les parties <a compléter> de 1 à 10 afin d'obtenir le résultat expliqué dans la vidéo du laboratoire -->
 	<!-- !!!!! Nous vous rendons attentif que vous n'avez PAS LE DROIT de modifier le reste du document, mais uniquement ces parties -->
 
-	</> <!-- ##### A compléter 1 -->
+	<xsl:output method="html" encoding="UTF-8" doctype-public="-//W3C//DTD HTML 4.01//EN" indent="yes"/> <!-- ##### A compléter 1 -->
 
-	<> <!-- ##### A compléter 2 -->
+	<xsl:template match="/pokedex"> <!-- ##### A compléter 2 -->
 
 		<html>
 
