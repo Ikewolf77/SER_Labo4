@@ -136,15 +136,6 @@
 			<xsl:attribute name="generation">
 
 				<!-- ##### A compléter 10 (le plus proprement possible) étant donné les contraintes suivantes : -->
-
-				<!-- generation = "1" si l'id du pokemon est plus petit ou égal à 151 -->
-				<!-- generation = "2" si l'id du pokemon est plus petit ou égal à 251 et plus grand que 151 -->
-				<!-- generation = "3" si l'id du pokemon est plus petit ou égal à 386 et plus grand que 251 -->
-				<!-- generation = "4" si l'id du pokemon est plus petit ou égal à 493 et plus grand que 386 -->
-				<!-- generation = "5" si l'id du pokemon est plus petit ou égal à 649 et plus grand que 493 -->
-				<!-- generation = "6" si l'id du pokemon est plus petit ou égal à 721 et plus grand que 649.-->
-				<!-- generation = "7" si l'id du pokemon est plus petit ou égal à 809 et plus grand que 721-->
-
 				<xsl:choose>
 					<xsl:when test="id &lt; 152">
 						<xsl:value-of select="1"/>
@@ -206,10 +197,10 @@
 	<xsl:template match="id">
 
 		<img width="100%">
-
-			</> <!-- ##### A compléter 8 : Ici, vous devez étudier le dossier images et vous trouverez facilement l'objectif de ce que vous devez faire ici. Indice : Vous devez utiliser une ou plusieurs 	               fonctions de  XSLT-->
-
-				<!-- NB : La sources d'images utilisées provient de :  https://github.com/fanzeyi/pokemon.json    -->
+			<xsl:variable name="id" select="." />
+			<xls:attribute name="src">
+				images/<xsl:number value="$id" format="001"/>.png
+			</xls:attribute>
 		</img>
 
 	</xsl:template>
