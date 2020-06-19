@@ -110,7 +110,7 @@
 
 		</html>
 
-	<> <!-- Fin a compléter 2 -->
+	<xsl:template> <!-- Fin a compléter 2 -->
 
 	<xsl:template name="lister_pokemon">
 
