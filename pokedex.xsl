@@ -76,8 +76,9 @@
 									<xsl:value-of select="." />
 								</xsl:attribute>
 
-								<!-- ##### A compléter 4 : Ici, vous devez faire appel au template lister_pokemon en lui passant le bon filtre en paramètre -->
-
+								<ysl:call_template name="lister_pokemon">
+									<xsl:with-param name="filtre" select="/pokedex/pokemon[type = $type]"/>
+								</ysl:call_template>
 							</div>
 
 						</xsl:for-each>
