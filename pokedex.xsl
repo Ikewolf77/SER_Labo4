@@ -145,7 +145,29 @@
 				<!-- generation = "6" si l'id du pokemon est plus petit ou égal à 721 et plus grand que 649.-->
 				<!-- generation = "7" si l'id du pokemon est plus petit ou égal à 809 et plus grand que 721-->
 
-				<xsl:value-of select="1"><!-- Pour l'instant tous les pokémosn sont de la génération 1, pour que vous ne soyez pas bloqué sur le reste -->
+				<xsl:choose>
+					<xsl:when test="id &lt; 152">
+						<xsl:value-of select="1"/>
+					<xsl:when>
+					<xsl:when test="id &lt; 252 and id &gt; 151">
+						<xsl:value-of select="2"/>
+					<xsl:when>
+					<xsl:when test="id &lt; 369 and id &gt; 251">
+						<xsl:value-of select="3"/>
+					<xsl:when>
+					<xsl:when test="id &lt; 494 and id &gt; 368">
+						<xsl:value-of select="4"/>
+					<xsl:when>
+					<xsl:when test="id &lt; 650 and id &gt; 493">
+						<xsl:value-of select="5"/>
+					<xsl:when>
+					<xsl:when test="id &lt; 722 and id &gt; 649">
+						<xsl:value-of select="6"/>
+					<xsl:when>
+					<xsl:when test="id &lt; 810 and id &gt; 721">
+						<xsl:value-of select="7"/>
+					<xsl:when>
+				</xsl:choose>
 
 				<!-- Fin A compléter 10 -->
 
@@ -183,7 +205,7 @@
 
 	<xsl:template match="id">
 
-		<img width="100%"
+		<img width="100%">
 
 			</> <!-- ##### A compléter 8 : Ici, vous devez étudier le dossier images et vous trouverez facilement l'objectif de ce que vous devez faire ici. Indice : Vous devez utiliser une ou plusieurs 	               fonctions de  XSLT-->
 
@@ -192,7 +214,7 @@
 
 	</xsl:template>
 
-	<> <!-- ##### A compléter 9 -->
+	<xsl:template match="base"> <!-- ##### A compléter 9 -->
 
 		<table class="table table-stripped">
 			
@@ -219,6 +241,6 @@
 
 		</table>
 
-	<> <!-- Fin à compléter 9 -->
+	</xsl:template> <!-- Fin à compléter 9 -->
 
 </xsl:stylesheet>
